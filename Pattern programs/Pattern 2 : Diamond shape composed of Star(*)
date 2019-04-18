@@ -1,0 +1,50 @@
+    *
+   ***
+  *****
+ *******
+*********
+ *******
+  *****
+   ***
+    *
+    
+    
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+  int n;
+  cin>>n;
+  int a=n/2;
+  int b=a+1;
+    int k=0;
+  for(int i=1;i<=n;i++){
+      if(i<=b){
+          for(int j=1;j<=b-i;j++){
+              cout<<" ";
+          }
+      }
+      else if(i>b){
+          for(int j=1;j<=i-b;j++){
+              cout<<" ";
+          }
+      }
+      if(i<=b){
+          for(int j=1;j<=2*i-1;j++){
+              cout<<"*";
+          }
+      }
+      else {
+           k=n-i+1;
+          
+          for(int h=1;h<=2*k-1;h++){
+              cout<<"*";
+          }
+      }
+      cout<<"\n";
+  }
+
+    return 0;
+}
