@@ -1,0 +1,8 @@
+void reverse(struct node* head)
+{
+  if(head == NULL)
+    return;
+  
+  fun1(head->next);
+  printf("%d  ", head->data);
+}
