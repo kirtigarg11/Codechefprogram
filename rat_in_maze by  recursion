@@ -1,0 +1,58 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define n 4
+#define m 4
+   
+int isSafe(int ar[n][m],int x,int y){
+    if(x>=0 && y>=0 && x<n &&y<m && ar[x][y]==1){
+        return 1;
+    }
+    else{
+        return 0;
+    }
+}
+int rat_in_maze(int ar[n][m],int sol[n][m],int x,int y){
+    if(x==n-1 && y==m-1){
+        sol[x][y]=1;
+        return 1;
+    }
+    if(isSafe(ar,x,y)){
+        sol[x][y]=1;
+        if(rat_in_maze(ar,sol,x+1,y)==1)
+            return 1;
+         if(rat_in_maze(ar,sol,x,y+1)==1)
+         return 1;
+           if(rat_in_maze(ar,sol,x-1,y)==1)
+         return 1;
+           if(rat_in_maze(ar,sol,x,y-1)==1)
+         return 1;
+         sol[x][y]=0;
+         return 0;
+    }
+    return 0;
+    
+}
+int main(){
+    
+    int ar[n][m];
+    for(int i=0;i<n;i++){
+        for(int j=0;j<m;j++){
+            cin>>ar[i][j];
+        }
+    }
+    int sol[n][m];
+    memset(sol,0,sizeof(sol));
+    int a=rat_in_maze(ar,sol,0,0);
+    if(a==1){
+        for(int i=0;i<n;i++){
+        for(int j=0;j<m;j++){
+            cout<<sol[i][j]<<" ";
+        }
+        cout<<endl;
+    }
+    }
+    else{
+        cout<<"no";
+    }
+    
+}
